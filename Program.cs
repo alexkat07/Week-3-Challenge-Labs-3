@@ -8,22 +8,23 @@
 
             static string Indicies(int[] myArray, int target) 
             {
-                int L = 0;
-                int R = myArray.Length-1;
-                while (L < R) 
+                int leftPointer = 0;
+                int rightPointer = myArray.Length-1;
+                while (leftPointer < rightPointer) 
                 {
-                    int addition = myArray[L] + myArray[R];
+                    int addition = myArray[leftPointer] + myArray[rightPointer];
+                    
                     if (addition == target) 
                     {
-                        return $"[{L},{R}]";
+                        return $"[{leftPointer},{rightPointer}]";
                     }
                     else if (addition > target) 
                     {
-                        R--;
+                        rightPointer--;
                     }
                     else
                     {
-                        L++;    
+                        leftPointer++;    
                     }   
                 }
                 return "none";
